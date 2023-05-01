@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block content %}
+    {{ category.name }}<br>
+    {% for book in books %}
+        {{ book.name }}
+
+        <img src="{{ book.poster.url }}" alt="">
+
+
+    {% endfor %}
+
+{% endblock %}

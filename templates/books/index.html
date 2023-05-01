@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    Книги
+{% endblock %}
+{% block content %}
+{#    Отображение списка категорий#}
+    {% for category in categories %}
+        <a href="{% url 'category-detail' category.name%}">{{ category.name }}</a>
+    {% endfor %}
+
+{#    Отображение книг и их категорий#}
+    {% for book in books %}
+        <h4>{{ book.name }}</h4>
+        {% for cat in book.category.all %}
+           <h5>{{ cat.name }}</h5>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
